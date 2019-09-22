@@ -20,7 +20,7 @@ ENV ANSIBLE_VERSION 2.8.5
 ENV HOME=/home/theia
 
 RUN yum install -y --disableplugin=subscription-manager https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN yum install -y --disableplugin=subscription-manager nodejs
+RUN yum install -y --disableplugin=subscription-manager nodejs sshpass
 
 RUN	pip install --upgrade pip && \
     pip install --no-cache-dir virtualenv && \
