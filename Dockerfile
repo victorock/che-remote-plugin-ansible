@@ -7,7 +7,7 @@
 #
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
-ARG CHE_RUNTIME_VERSION=7.1.0
+ARG CHE_RUNTIME_VERSION=next
 ARG PYTHON_VERSION=36
 
 FROM eclipse/che-theia-endpoint-runtime:${CHE_RUNTIME_VERSION} as endpoint
@@ -67,6 +67,9 @@ COPY --from=endpoint /etc/passwd  /etc/passwd
 COPY --from=endpoint /etc/group   /etc/group
 COPY --from=endpoint /entrypoint.sh /entrypoint.sh
 
-RUN chmod -R 777 ${HOME}
+RUN chmod -R 777 ${HOME} /etc/passwd /etc/group
 
 USER node
+
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+
