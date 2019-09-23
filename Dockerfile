@@ -34,6 +34,7 @@ RUN pip install "ansible==${ANSIBLE_VERSION}" \
 	azure \
 	boto \
 	boto3 \
+	docker \
 	ovirt-engine-sdk-python \
 	pyvmomi \
 	netaddr \
