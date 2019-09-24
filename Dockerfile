@@ -66,11 +66,13 @@ COPY --from=endpoint /home/theia /home/theia
 COPY --from=endpoint /projects /projects
 COPY --from=endpoint /etc/passwd  /etc/passwd
 COPY --from=endpoint /etc/group   /etc/group
-COPY --from=endpoint /entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+COPY cmd.sh /cmd.sh
 
 RUN chmod -R 777 ${HOME} /etc/passwd /etc/group
 
 USER node
 
-ENTRYPOINT ["bash", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["bash", "/cmd.sh"]
 
