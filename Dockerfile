@@ -7,7 +7,7 @@
 #
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
-ARG CHE_RUNTIME_VERSION=next
+ARG CHE_RUNTIME_VERSION=7.1.0
 ARG PYTHON_VERSION=36
 
 FROM eclipse/che-theia-endpoint-runtime:${CHE_RUNTIME_VERSION} as endpoint
